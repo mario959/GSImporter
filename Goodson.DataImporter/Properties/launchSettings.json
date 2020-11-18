@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Goodson.DataImporter": {
+      "commandName": "Project",
+      "commandLineArgs": "\"../../../../Articles.csv\""
+    }
+  }
+}

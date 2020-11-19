@@ -36,6 +36,7 @@ namespace Goodson.Database
             insertCommand.Parameters.AddWithValue("$Description", description);
             if (deliveryStateId.HasValue) insertCommand.Parameters.AddWithValue("$DeliveryStateId", deliveryStateId);
             insertCommand.ExecuteNonQuery();
+            
         }
         #endregion
 
@@ -167,6 +168,7 @@ namespace Goodson.Database
         private static void ExecuteNonQuery(SqliteConnection connection, SqliteTransaction transaction, string createTable)
         {
             var insertCommand = connection.CreateCommand();
+            
             insertCommand.Transaction = transaction;
             insertCommand.CommandText = createTable;
             insertCommand.ExecuteNonQuery();

@@ -1,6 +1,7 @@
 ﻿using Goodson.Database;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 
@@ -14,8 +15,13 @@ namespace Goodson.DataImporter
 
             // TODO: Code Position: #1
             var importDataPath = args[0];
+            if (!File.Exists(importDataPath))
+            {
+                Console.WriteLine("CSV-Datei ist nicht vorhanden");
+                return 1;
+            }
 
-            //test
+            
 
             // Instantiate a new Database Handler
             var dataBase = new SQLiteDatabaseHandler();
@@ -34,7 +40,7 @@ namespace Goodson.DataImporter
                 // TODO: Code Position: #3
                 // Folgende Felder der Articles Tabelle: ArticleNumberId, ArticleNumber, Name, Description, DeliveryStateId
                 // Folgende Felder der DeliveryStates Tabelle: DeliveryStatesId, Name
-                var rows = dataBase.QueryData("SELECT * FROM ???");
+                var rows = dataBase.QueryData("SELECT * FROM litlepim.db.Articles");
                 PrintToConsole(rows);
             } else {
                 return 1; 

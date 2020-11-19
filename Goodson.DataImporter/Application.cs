@@ -15,6 +15,8 @@ namespace Goodson.DataImporter
             // TODO: Code Position: #1
             var importDataPath = args[0];
 
+            //test
+
             // Instantiate a new Database Handler
             var dataBase = new SQLiteDatabaseHandler();
             bool ok = dataBase.InitDatabase(); // Will create a fresh database, when ok all things are set to start import
